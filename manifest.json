@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+
+    "name": "save images",
+
+    "description": "Quickly save images on websites",
+
+    "version": "1.0",
+
+    "homepage_url": "https://github.com/artsince/image-isolator",
+
+    "permissions": [
+        "contextMenus"
+    ],
+
+    "content_scripts": [{
+        "matches": ["*://*/*"],
+        "js": ["inject.js"]
+    }],
+
+    "icons": {
+        "16": "dl.png",
+        "48": "dl-48.png"
+    },
+
+    "background": {
+        "scripts": ["background.js"]
+    }
+}
