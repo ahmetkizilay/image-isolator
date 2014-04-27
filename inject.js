@@ -19,8 +19,9 @@
             return el.src;
         }
 
-        if(el.style['background-image']) {
-            return el.style['background-image']; // still need to construct full url
+        var computedStyle = w.getComputedStyle(el);
+        if(computedStyle['background-image'] && computedStyle['background-image'] !== 'none') {
+            return computedStyle['background-image'];
         }
 
         if(el.constructor.prototype.getAttribute) {
@@ -40,6 +41,7 @@
      * _fn_searchImgSrc method.
      */
     var _fn_searchImgSrcChildren = function (el, max_depth) {
+
         if(max_depth === 0) {
             return null;
         }
@@ -131,7 +133,7 @@
             _found_src = _fn_correctSrc(_found_src);
         }
 
-        console.log(_found_src);
+        console.log(_found_src ? _found_src : 'image not found');
     };
 
     w.addEventListener('contextmenu', fn_onContextMenu);
