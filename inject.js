@@ -20,7 +20,7 @@
         }
 
         var computedStyle = w.getComputedStyle(el);
-        if(computedStyle['background-image'] && computedStyle['background-image'] !== 'none') {
+        if(computedStyle && computedStyle['background-image'] && computedStyle['background-image'] !== 'none') {
             return computedStyle['background-image'];
         }
 
